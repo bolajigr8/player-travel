@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { EsimClient } from '../client'
+import { Suspense } from 'react'
 
 export const metadata: Metadata = {
   title: 'eSIM Plans | Golafly Travel',
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 }
 
 export default function EsimPlansPage() {
-  return <EsimClient />
+  return (
+    <Suspense>
+      <EsimClient />
+    </Suspense>
+  )
 }
