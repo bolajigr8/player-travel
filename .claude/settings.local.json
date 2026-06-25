@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__figma-desktop__get_screenshot",
+      "mcp__figma-desktop__get_design_context",
+      "Bash(npx tsc *)",
+      "Bash(npx next *)",
+      "PowerShell(New-Item *)",
+      "Bash(pnpm add *)",
+      "Bash(node *)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git branch *)",
+      "Bash(git remote *)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\Administrator\\\\Desktop\\\\travels\\\\lib\" -Recurse -File | ForEach-Object { $_.FullName })",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\Administrator\\\\Desktop\\\\travels\\\\store\" -Recurse -File | ForEach-Object { $_.FullName })",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\Administrator\\\\Desktop\\\\matchday\" -Recurse -File | Where-Object { $_.Extension -match '\\\\.\\(ts|tsx|js|jsx|json\\)$' } | ForEach-Object { $_.FullName } | Select-Object -First 80)",
+      "Bash(\"/c/Users/Administrator/AppData/Roaming/npm/pnpm\" add *)",
+      "Bash(\"/c/Users/Administrator/AppData/Roaming/npm/pnpm\" install *)",
+      "Bash(rm -rf \"/c/Users/Administrator/Desktop/matchday/node_modules\")",
+      "Bash(rm -f \"/c/Users/Administrator/Desktop/matchday/pnpm-lock.yaml\")",
+      "Bash(npx eslint *)",
+      "Bash(git -C \"C:/Users/Administrator/Desktop/matchday\" log --oneline -15)",
+      "Bash(git -C \"C:/Users/Administrator/Desktop/matchday\" status --short)",
+      "PowerShell(git *)",
+      "PowerShell(Push-Location \"C:/Users/Administrator/Desktop/matchday\"; npx tsc --noEmit; $code = $LASTEXITCODE; Pop-Location; \"EXIT=$code\")",
+      "PowerShell(Push-Location \"C:/Users/Administrator/Desktop/matchday\"; npx eslint app/flights/checkout/client.tsx app/flights/confirmed/client.tsx app/flights/manage/client.tsx app/flights/extras/client.tsx features/flights/api.ts features/flights/hooks.ts features/flights/schema.ts features/flights/types.ts; $code = $LASTEXITCODE; Pop-Location; \"EXIT=$code\")",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" --max-time 5 http://127.0.0.1:3845/mcp)",
+      "Bash(curl -s --max-time 5 http://127.0.0.1:3845/mcp -H \"Accept: text/event-stream\")",
+      "Bash(python -c \"import json; d=json.load\\(open\\('C:/Users/Administrator/.claude.json'\\)\\); print\\('config parses OK'\\); import sys; print\\('top-level keys:', list\\(d.keys\\(\\)\\)[:12]\\)\")",
+      "Read(//c/Users/Administrator/**)",
+      "Read(//c/Users/Administrator/.claude/backups/**)",
+      "mcp__figma-desktop__get_metadata"
+    ]
+  }
+}

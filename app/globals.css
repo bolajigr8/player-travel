@@ -1,0 +1,287 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-navbar: var(--navbar);
+  --color-navbar-border: var(--navbar-border);
+  --color-navbar-muted: var(--navbar-muted);
+  /* Figma fonts: Inter (body) · Space Grotesk (headings) · JetBrains Mono (labels) */
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-heading: var(--font-heading);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  /* Matchday home: panels on page (search, cards, promo) — light = solid card, dark = glass */
+  --color-home-panel: var(--home-panel);
+  --color-home-panel-border: var(--home-panel-border);
+  /* Footer */
+  --color-footer-bg: var(--footer-bg);
+  --color-footer-text: var(--footer-text);
+  --color-footer-text-muted: var(--footer-text-muted);
+  --color-footer-heading: var(--footer-heading);
+  --color-footer-border: var(--footer-border);
+  --color-footer-input-bg: var(--footer-input-bg);
+  --color-footer-input-border: var(--footer-input-border);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  color-scheme: light;
+
+  /* Brand (Figma light: ~#dfff00) */
+  --brand: oklch(0.94 0.19 124);
+  --brand-foreground: oklch(0.16 0 0);
+  --brand-glow: color-mix(in oklch, var(--brand) 35%, transparent);
+
+  /* Surfaces tuned for light navbar / page */
+  --navbar: oklch(1 0 0);
+  --navbar-border: oklch(0.91 0 0);
+  --navbar-muted: oklch(0.96 0 0);
+
+  --background: oklch(0.985 0.002 106);
+  --foreground: oklch(0.18 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0 0);
+  --primary: var(--brand);
+  --primary-foreground: var(--brand-foreground);
+  --secondary: oklch(0.965 0 0);
+  --secondary-foreground: oklch(0.22 0 0);
+  --muted: oklch(0.965 0 0);
+  --muted-foreground: oklch(0.45 0 0);
+  --accent: oklch(0.965 0.01 124);
+  --accent-foreground: oklch(0.22 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.91 0 0);
+  --input: oklch(0.91 0 0);
+  --ring: oklch(0.55 0.12 124);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.18 0 0);
+  --sidebar-primary: var(--brand);
+  --sidebar-primary-foreground: var(--brand-foreground);
+  --sidebar-accent: oklch(0.965 0 0);
+  --sidebar-accent-foreground: oklch(0.22 0 0);
+  --sidebar-border: oklch(0.91 0 0);
+  --sidebar-ring: oklch(0.55 0.12 124);
+
+  --home-panel: oklch(1 0 0 / 0.96);
+  --home-panel-border: var(--border);
+  --home-hero-scrim: linear-gradient(
+    to top,
+    oklch(0.12 0 0 / 0.78) 0%,
+    oklch(0.12 0 0 / 0.35) 42%,
+    transparent 72%
+  );
+
+  /* Footer — light theme */
+  --footer-bg: oklch(0.965 0.008 124);
+  --footer-text: oklch(0.45 0.02 140);
+  --footer-text-muted: oklch(0.55 0.015 140);
+  --footer-heading: oklch(0.18 0 0);
+  --footer-border: oklch(0.88 0.025 124 / 0.35);
+  --footer-input-bg: oklch(1 0 0 / 0.75);
+  --footer-input-border: oklch(0.72 0.12 124 / 0.25);
+}
+
+.dark {
+  color-scheme: dark;
+
+  /* Brand (Figma dark: ~#ccff00) */
+  --brand: oklch(0.9 0.21 123);
+  --brand-foreground: oklch(0.12 0 0);
+  --brand-glow: color-mix(in oklch, var(--brand) 45%, transparent);
+
+  --navbar: oklch(0.08 0 0);
+  --navbar-border: oklch(0.28 0 0);
+  --navbar-muted: oklch(0.2 0 0);
+
+  --background: oklch(0.1 0 0);
+  --foreground: oklch(0.96 0 0);
+  --card: oklch(0.16 0 0);
+  --card-foreground: oklch(0.96 0 0);
+  --popover: oklch(0.16 0 0);
+  --popover-foreground: oklch(0.96 0 0);
+  --primary: var(--brand);
+  --primary-foreground: var(--brand-foreground);
+  --secondary: oklch(0.22 0 0);
+  --secondary-foreground: oklch(0.96 0 0);
+  --muted: oklch(0.22 0 0);
+  --muted-foreground: oklch(0.65 0 0);
+  --accent: oklch(0.24 0.02 123);
+  --accent-foreground: oklch(0.96 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(0.28 0 0);
+  --input: oklch(0.28 0 0);
+  --ring: oklch(0.72 0.16 123);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.14 0 0);
+  --sidebar-foreground: oklch(0.96 0 0);
+  --sidebar-primary: var(--brand);
+  --sidebar-primary-foreground: var(--brand-foreground);
+  --sidebar-accent: oklch(0.22 0 0);
+  --sidebar-accent-foreground: oklch(0.96 0 0);
+  --sidebar-border: oklch(0.28 0 0);
+  --sidebar-ring: oklch(0.72 0.16 123);
+
+  --home-panel: oklch(0.08 0 0 / 0.55);
+  --home-panel-border: oklch(1 0 0 / 0.1);
+  --home-hero-scrim: linear-gradient(
+    to top,
+    oklch(0.05 0 0 / 0.85) 0%,
+    oklch(0.05 0 0 / 0.4) 45%,
+    transparent 75%
+  );
+
+  /* Footer — dark theme */
+  --footer-bg: oklch(0.08 0.01 124);
+  --footer-text: oklch(0.7 0.02 140);
+  --footer-text-muted: oklch(0.48 0.015 140);
+  --footer-heading: oklch(0.96 0 0);
+  --footer-border: oklch(0.72 0.16 123 / 0.08);
+  --footer-input-bg: oklch(0.12 0.005 124 / 0.75);
+  --footer-input-border: oklch(0.72 0.16 123 / 0.2);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;   /* Inter for body copy */
+  }
+  body {
+    @apply min-h-dvh bg-background text-foreground antialiased;
+  }
+  /* Headings use Space Grotesk — matching the Figma */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+/* ── Suppress ALL Google Translate UI ───────────────────────────
+   Google injects a toolbar (iframe + wrapping div) into <body>.
+   The wrapper always has both classes: skiptranslate + goog-te-gadget.
+   The iframe always has class: goog-te-banner-frame.
+   Targeting both kills the toolbar completely.                     */
+
+/* 1. The injected toolbar wrapper Google adds directly to <body> */
+.goog-te-gadget,
+.skiptranslate.goog-te-gadget,
+div.skiptranslate {
+  display: none !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* 2. The banner iframe itself */
+iframe.goog-te-banner-frame,
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+/* 3. Tooltip bubble */
+#goog-gt-tt,
+.goog-te-balloon-frame,
+.goog-te-balloon {
+  display: none !important;
+}
+
+/* 4. "Translated by Google" badge */
+.goog-logo-link,
+.goog-te-gadget-simple,
+.goog-te-gadget img {
+  display: none !important;
+}
+
+/* 5. Counter body { top } — do NOT add position:relative (it makes
+      Google's offset actually work). Just force top back to 0. */
+body {
+  top: 0 !important;
+}
+
+/* 6. When html has translated-ltr / translated-rtl Google also shifts
+      the frame. Undo that. */
+html.translated-ltr body,
+html.translated-rtl body {
+  top: 0 !important;
+}
+
+@layer utilities {
+  /* Hide scrollbar while keeping scroll functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /*
+   * Canonical page container — use on every page's outermost div.
+   * max-w-[1280px]  → matches footer and booking pages
+   * px-5 / sm:px-6 / lg:px-8 → comfortable breathing room at all viewports
+   */
+  .page-container {
+    @apply mx-auto w-full max-w-[1280px] px-5 sm:px-6 lg:px-8;
+  }
+
+  /* Narrower container for editorial / long-form sections */
+  .content-container {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
+  }
+
+  .bg-home-hero-scrim {
+    background-image: var(--home-hero-scrim);
+  }
+}
